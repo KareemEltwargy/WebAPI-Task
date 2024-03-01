@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Core.DTOs;
 using WebAPI.Core.Interfaces;
@@ -16,6 +17,7 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
         [HttpGet("GetAll")]
+        //[Authorize]
         public async Task<IActionResult> GetAll()
         {
             IEnumerable<Department> departments = await _unitOfWork.Departments
