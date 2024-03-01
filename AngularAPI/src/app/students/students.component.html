@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <h1 class="w-100 m-2"><a routerLink="/">Home</a></h1>
+    <a routerLink="/Add-Student" class="btn btn-primary m-2">Add Student</a>
+  </div>
+  <div class="row row-cols-4">
+    @for(student of Students; track student.id){
+    <div class="w-25 mb-2">
+      <div class="card m-2 h-100">
+        <img
+          class="card-img-top m-auto"
+          [src]="student.image"
+          alt="Card image cap"
+          style="height: 15vmin; width: 15vmin"
+        />
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">{{ student.name }}</h5>
+          <div class="card-text">
+            <p>Age: {{ student.age }}</p>
+            <p>Department Name: {{ student.deptName }}</p>
+            <p>Address: {{ student.address }}</p>
+          </div>
+          <a routerLink="/Students/{{ student.id }}" class="btn btn-dark"
+            >Details</a
+          >
+          <a
+            routerLink="/Students/Edit/{{ student.id }}"
+            class="btn btn-primary"
+            >Edit</a
+          >
+          <button (click)="delete(student.id)" class="btn btn-outline-danger">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Create</h1>
+
+  <h4>Create Department</h4>
+  <hr />
+  <form>
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input
+        #name
+        type="text"
+        name="name"
+        class="form-control"
+        id="Name"
+        placeholder="Enter Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        #description
+        name="description"
+        type="text"
+        class="form-control"
+        id="description"
+        placeholder="Enter Description"
+      />
+    </div>
+  </form>
+  <div class="form-group">
+    <input
+      type="button"
+      class="btn btn-primary"
+      value="Add"
+      (click)="create(name.value, description.value)"
+    />
+  </div>
+  <div>
+    <a routerLink="/Departments" class="btn btn-outline-dark">Back to List</a>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="container">
+  <h1>Create</h1>
+
+  <h4>Create Customer</h4>
+  <hr />
+  <form>
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input
+        #name
+        type="text"
+        name="name"
+        class="form-control"
+        id="Name"
+        placeholder="Enter Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Age">Age</label>
+      <input
+        #age
+        name="age"
+        type="number"
+        class="form-control"
+        id="Age"
+        placeholder="Enter Age"
+      />
+    </div>
+    <div class="form-group">
+      <label for="DepartmentName">Department</label>
+      <select #deptID name="deptID" id="DepartmentName" class="form-control">
+        @for(Department of Departments; track Department.id){
+
+        <option [value]="Department.id">
+          {{ Department.name }}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Address">Address</label>
+      <input
+        #address
+        type="text"
+        name="address"
+        class="form-control"
+        id="Address"
+        placeholder="Enter Address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="birthDate">BirthDate</label>
+      <input
+        #birthDate
+        name="birthDate"
+        type="date"
+        class="form-control"
+        id="birthDate"
+      />
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        #image
+        type="text"
+        name="image"
+        class="form-control"
+        id="image"
+        placeholder="Enter Image"
+      />
+    </div>
+  </form>
+  <div class="form-group">
+    <input
+      type="button"
+      class="btn btn-primary"
+      value="Add"
+      (click)="
+        create(
+          name.value,
+          age.value,
+          deptID.value,
+          address.value,
+          birthDate.value,
+          image.value
+        )
+      "
+    />
+  </div>
+  <div>
+    <a routerLink="/Students" class="btn btn-outline-dark">Back to List</a>
+  </div>
+</div>
